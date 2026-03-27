@@ -1,0 +1,551 @@
+/* Reset básico para remover margens e paddings padrão de todos os elementos */
+* {
+    /* Remove margem externa de todos os elementos */
+    margin: 0;
+    /* Remove preenchimento interno de todos os elementos */
+    padding: 0;
+    /* Inclui bordas e paddings no cálculo da largura e altura */
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS para os temas */
+:root {
+    /* Dark Mode (padrão) */
+    --bg-color: #000;
+    --text-color: #fff;
+    --text-secondary: #ccc;
+    --border-color: #e50914;
+    --border-hover: #e50914;
+    --button-bg: rgba(255, 255, 255, 0.1);
+    --button-text: #fff;
+    --button-hover: rgba(255, 255, 255, 0.2);
+}
+
+/* Light Mode */
+.light-mode {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --text-secondary: #666;
+    --border-color: transparent;
+    --border-hover: #e50914;
+    --button-bg: rgba(0, 0, 0, 0.1);
+    --button-text: #333;
+    --button-hover: rgba(0, 0, 0, 0.2);
+}
+
+/* Corpo da página */
+body {
+    /* Define a cor de fundo usando variável */
+    background-color: var(--bg-color);
+    /* Define a cor do texto usando variável */
+    color: var(--text-color);
+    /* Define a família de fontes como Arial ou Helvetica */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Define o layout como flexbox */
+    display: flex;
+    /* Organiza os itens em coluna */
+    flex-direction: column;
+    /* Centraliza os itens horizontalmente */
+    align-items: center;
+    /* Centraliza os itens verticalmente */
+    justify-content: center;
+    /* Define a altura mínima como 100% da viewport */
+    min-height: 100vh;
+    /* Adiciona preenchimento interno de 20px */
+    padding: 20px;
+    /* Transição suave para mudança de tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    /* Centraliza o texto */
+    text-align: center;
+    /* Adiciona margem inferior de 40px */
+    margin-bottom: 40px;
+}
+
+header h1 {
+    /* Define o tamanho da fonte como 3rem */
+    font-size: 3rem;
+    /* Define o peso da fonte como normal */
+    font-weight: normal;
+}
+
+/* Botão de toggle do tema */
+.theme-toggle {
+    /* Posiciona no canto superior direito da viewport */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    /* Remove bordas padrão */
+    border: none;
+    /* Define fundo usando variável */
+    background-color: var(--button-bg);
+    /* Define cor do texto usando variável */
+    color: var(--button-text);
+    /* Define tamanho da fonte */
+    font-size: 1.5rem;
+    /* Define largura e altura */
+    width: 50px;
+    height: 50px;
+    /* Torna circular */
+    border-radius: 50%;
+    /* Define cursor como ponteiro */
+    cursor: pointer;
+    /* Adiciona transição suave */
+    transition: all 0.3s ease;
+    /* Centraliza o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Adiciona sombra para destacar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Garante que fique acima de outros elementos */
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    /* Muda fundo no hover usando variável */
+    background-color: var(--button-hover);
+    /* Efeito de escala */
+    transform: scale(1.1);
+}
+
+/* Main */
+main {
+    /* Define a largura como 100% */
+    width: 100%;
+    /* Define a largura máxima como 800px */
+    max-width: 800px;
+}
+
+/* Section */
+section {
+    /* Centraliza o texto */
+    text-align: center;
+}
+
+section h2 {
+    /* Define o tamanho da fonte como 1.5rem */
+    font-size: 1.5rem;
+    /* Adiciona margem inferior de 30px */
+    margin-bottom: 30px;
+    /* Define a cor do texto usando variável */
+    color: var(--text-secondary);
+    /* Transição suave para mudança de cor */
+    transition: color 0.3s ease;
+}
+
+/* Lista de perfis */
+.profiles {
+    /* Define o layout como flexbox */
+    display: flex;
+    /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    /* Define o espaço entre os itens como 40px */
+    gap: 40px;
+    /* Remove o estilo de lista padrão */
+    list-style: none;
+    /* Permite que os itens quebrem para a próxima linha */
+    flex-wrap: wrap;
+}
+
+.profile {
+    /* Define o layout como flexbox */
+    display: flex;
+    /* Organiza os itens em coluna */
+    flex-direction: column;
+    /* Centraliza os itens horizontalmente */
+    align-items: center;
+    /* Define o cursor como ponteiro para indicar interatividade */
+    cursor: pointer;
+    /* Adiciona transição suave para transformações */
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    /* Aumenta o tamanho do elemento em 10% no hover */
+    transform: scale(1.1);
+}
+
+.profile img {
+    /* Define a largura como 120px */
+    width: 120px;
+    /* Define a altura como 120px */
+    height: 120px;
+    /* Torna a imagem circular */
+    border-radius: 10px;
+    /* Ajusta a imagem para cobrir o contêiner sem distorcer */
+    object-fit: cover;
+    /* Adiciona borda transparente de 3px */
+    border: 3px solid transparent;
+    /* Adiciona transição suave para a cor da borda */
+    transition: border-color 0.3s ease;
+}
+
+.profile:hover img {
+    /* Muda a cor da borda usando variável */
+    border-color: var(--border-hover);
+}
+
+.profile span {
+    /* Adiciona margem superior de 10px */
+    margin-top: 10px;
+    /* Define o tamanho da fonte como 1.2rem */
+    font-size: 1.2rem;
+    /* Centraliza o texto */
+    text-align: center;
+}
+
+/* Responsividade */
+
+/* Mobile pequena (até 360px) */
+@media (max-width: 360px) {
+    body {
+        /* Reduz o preenchimento em mobile muito pequena */
+        padding: 10px;
+        /* Reduz altura mínima */
+        min-height: 100svh;
+    }
+
+    header {
+        /* Reduz margem inferior */
+        margin-bottom: 25px;
+    }
+
+    header h1 {
+        /* Font pequena para telas muito pequenas */
+        font-size: 1.5rem;
+    }
+
+    .theme-toggle {
+        /* Reduz tamanho do botão */
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        /* Ajusta posição para mobile pequena */
+        top: 10px;
+        right: 10px;
+    }
+
+    section h2 {
+        /* Reduz tamanho da fonte */
+        font-size: 1.1rem;
+        /* Reduz margem inferior */
+        margin-bottom: 20px;
+    }
+
+    .profiles {
+        /* Reduz espaço entre itens */
+        gap: 15px;
+    }
+
+    .profile img {
+        /* Reduz tamanho da imagem */
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile span {
+        /* Reduz tamanho da fonte */
+        font-size: 0.9rem;
+        /* Reduz margem superior */
+        margin-top: 8px;
+    }
+}
+
+/* Mobile média (361px a 480px) */
+@media (min-width: 361px) and (max-width: 480px) {
+    body {
+        /* Preenchimento moderado */
+        padding: 15px;
+    }
+
+    header {
+        /* Margem moderada */
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        /* Tamanho intermediário */
+        font-size: 1.8rem;
+    }
+
+    .theme-toggle {
+        /* Tamanho moderado do botão */
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        /* Ajusta posição para mobile média */
+        top: 15px;
+        right: 15px;
+    }
+
+    section h2 {
+        /* Tamanho moderado */
+        font-size: 1.2rem;
+        /* Margem moderada */
+        margin-bottom: 25px;
+    }
+
+    .profiles {
+        /* Espaço moderado */
+        gap: 20px;
+    }
+
+    .profile img {
+        /* Tamanho moderado */
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile span {
+        /* Tamanho moderado */
+        font-size: 1rem;
+        /* Margem moderada */
+        margin-top: 10px;
+    }
+}
+
+/* Mobile grande (481px a 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    body {
+        /* Preenchimento padrão */
+        padding: 20px;
+    }
+
+    header {
+        /* Margem padrão */
+        margin-bottom: 35px;
+    }
+
+    header h1 {
+        /* Tamanho bom para mobile grande */
+        font-size: 2.2rem;
+    }
+
+    .theme-toggle {
+        /* Tamanho padrão do botão */
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        /* Ajusta posição para mobile grande */
+        top: 20px;
+        right: 20px;
+    }
+
+    section h2 {
+        /* Tamanho bom */
+        font-size: 1.4rem;
+        /* Margem boa */
+        margin-bottom: 28px;
+    }
+
+    .profiles {
+        /* Espaço bom */
+        gap: 25px;
+    }
+
+    .profile img {
+        /* Tamanho bom para mobile grande */
+        width: 110px;
+        height: 110px;
+    }
+
+    .profile span {
+        /* Tamanho bom */
+        font-size: 1.1rem;
+        /* Margem apropriada */
+        margin-top: 12px;
+    }
+}
+
+/* Tablet (768px a 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        /* Preenchimento generoso */
+        padding: 30px;
+    }
+
+    header {
+        /* Margem generosa */
+        margin-bottom: 45px;
+    }
+
+    header h1 {
+        /* Tamanho grande para tablet */
+        font-size: 2.5rem;
+    }
+
+    .theme-toggle {
+        /* Tamanho maior do botão */
+        width: 55px;
+        height: 55px;
+        font-size: 1.7rem;
+        /* Ajusta posição para tablet */
+        top: 30px;
+        right: 30px;
+    }
+
+    section h2 {
+        /* Tamanho adequado */
+        font-size: 1.5rem;
+        /* Margem apropriada */
+        margin-bottom: 35px;
+    }
+
+    main {
+        /* Aumenta largura máxima para tablets */
+        max-width: 900px;
+    }
+
+    .profiles {
+        /* Espaço maior entre itens */
+        gap: 35px;
+    }
+
+    .profile img {
+        /* Tamanho maior */
+        width: 130px;
+        height: 130px;
+    }
+
+    .profile span {
+        /* Tamanho maior */
+        font-size: 1.3rem;
+        /* Margem apropriada */
+        margin-top: 15px;
+    }
+
+    .profile:hover {
+        /* Aumenta o efeito de hover em telas maiores */
+        transform: scale(1.15);
+    }
+}
+
+/* Desktop (1024px a 1440px) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    body {
+        /* Preenchimento generoso */
+        padding: 40px;
+    }
+
+    header {
+        /* Margem generosa */
+        margin-bottom: 50px;
+    }
+
+    header h1 {
+        /* Tamanho padrão para desktop */
+        font-size: 3rem;
+    }
+
+    .theme-toggle {
+        /* Tamanho padrão do botão */
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        /* Ajusta posição para desktop */
+        top: 40px;
+        right: 40px;
+    }
+
+    section h2 {
+        /* Tamanho padrão */
+        font-size: 1.5rem;
+        /* Margem padrão */
+        margin-bottom: 30px;
+    }
+
+    main {
+        /* Largura máxima para desktop */
+        max-width: 950px;
+    }
+
+    .profiles {
+        /* Espaço padrão */
+        gap: 40px;
+    }
+
+    .profile img {
+        /* Tamanho padrão */
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile span {
+        /* Tamanho padrão */
+        font-size: 1.2rem;
+        /* Margem padrão */
+        margin-top: 10px;
+    }
+
+    .profile:hover {
+        /* Efeito suave em desktop */
+        transform: scale(1.1);
+    }
+}
+
+/* Desktop grande (acima de 1441px) */
+@media (min-width: 1441px) {
+    body {
+        /* Preenchimento extra grande */
+        padding: 50px;
+    }
+
+    header {
+        /* Margem extra grande */
+        margin-bottom: 60px;
+    }
+
+    header h1 {
+        /* Tamanho grande para telas grandes */
+        font-size: 3.5rem;
+    }
+
+    .theme-toggle {
+        /* Tamanho grande do botão */
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        /* Ajusta posição para desktop grande */
+        top: 50px;
+        right: 50px;
+    }
+
+    section h2 {
+        /* Tamanho grande */
+        font-size: 1.8rem;
+        /* Margem grande */
+        margin-bottom: 40px;
+    }
+
+    main {
+        /* Largura máxima para desktop grande */
+        max-width: 1100px;
+    }
+
+    .profiles {
+        /* Espaço maior */
+        gap: 50px;
+    }
+
+    .profile img {
+        /* Tamanho grande */
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile span {
+        /* Tamanho grande */
+        font-size: 1.4rem;
+        /* Margem grande */
+        margin-top: 15px;
+    }
+
+    .profile:hover {
+        /* Efeito maior em desktop grande */
+        transform: scale(1.12);
+    }
+}
